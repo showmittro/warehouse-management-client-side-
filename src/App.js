@@ -1,20 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
-import Home from './Pages/Home/Home';
+import {  Routes,Route } from 'react-router-dom';
 import Header from './Pages/Header/Header';
-import Services from './Pages/Services/Services';
-import Login from './Pages/Login/Login';
+import Home from './Pages/Home/Home';
 import Register from './Pages/Register/Register';
+import Login from './Pages/Login/Login';
+import NotFound from './Pages/NotFound/NotFound';
+import Footer from './Pages/Footer/Footer';
+
 
 function App() {
   return (
     <div className="App">
-      <Header></Header>
-      <Home></Home>
-      <Services></Services>
-      <Login></Login>
-      <Register></Register>
-    </div>
+    <Header></Header>
+    <Routes>
+      <Route path="/" element={<Home></Home>}></Route>
+      <Route path="/register" element={<Register></Register>}></Route>
+      <Route path="/login" element={<Login></Login>}></Route>
+      <Route path="*" element={<NotFound></NotFound>}></Route>
+    </Routes>
+    <Footer></Footer>
+    
+  </div>
   );
 }
 

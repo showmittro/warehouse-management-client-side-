@@ -1,5 +1,7 @@
 import React from 'react';
 import './Home.css'
+import Services from '../Services/Services';
+import Brands from '../Brands/Brands';
 
 const Home = () => {
 
@@ -17,6 +19,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <Services></Services>
+            <Brands></Brands>
 
         </div>
     );
