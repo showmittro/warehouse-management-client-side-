@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ServiceDetails = () => {
-   
 
 
-    const { serviceId,} = useParams();
+
+    const { serviceId, } = useParams();
     const [service, setService] = useState({});
 
 
@@ -15,23 +15,23 @@ const ServiceDetails = () => {
             .then(res => res.json())
             .then(data => setService(data));
 
-    }, [serviceId,service])
+    }, [serviceId, service])
 
-  
-    const handlStockUpdate = (e) =>{
+
+    const handlStockUpdate = (e) => {
         e.preventDefault();
         let deliver = e.target.quantity.value;
         const parseDeliver = parseInt(deliver);
 
-        let quantityParse =service.quantity;
+        let quantityParse = service.quantity;
         let quantity = quantityParse + parseDeliver;
-        
 
-        const updateQuntity = {quantity}
+
+        const updateQuntity = { quantity }
         console.log(updateQuntity)
 
 
-        
+
         const url = `http://localhost:5000/inventory/${serviceId}`;
         fetch(url, {
             method: "PUT",
@@ -41,26 +41,26 @@ const ServiceDetails = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                
+
             });
-        
+
     }
 
-    
 
-   
 
-    const handleDeliver =  () => {
+
+
+    const handleDeliver = () => {
         let deliver = 1;
-        let quantityParse =service.quantity;
+        let quantityParse = service.quantity;
         let quantity = quantityParse - deliver;
-        
 
-        const updateQuntity = {quantity}
+
+        const updateQuntity = { quantity }
         console.log(updateQuntity)
 
 
-        
+
         const url = `http://localhost:5000/inventory/${serviceId}`;
         fetch(url, {
             method: "PUT",
@@ -70,14 +70,15 @@ const ServiceDetails = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                
+
             });
     };
 
 
 
-    // <h1>Inventory Detalis</h1>
-    //         <h2>You are about to book: {service.name}</h2>
+
+
+
     return (
         <div className='mt-5'>
             <div class="col d-flex justify-content-center ">
@@ -92,17 +93,17 @@ const ServiceDetails = () => {
 
                         <button type="submit" onClick={handleDeliver} class="btn btn-primary">Shipped</button>
 
-                        <form  className='mt-2' onSubmit={handlStockUpdate}>
-                        <div class="mb-3 mt-2">
-                            <label for="exampleInputPassword1" class="form-label"></label>
-                            <input type="number" name='quantity'
+                        <form className='mt-2' onSubmit={handlStockUpdate}>
+                            <div class="mb-3 mt-2">
+                                <label for="exampleInputPassword1" class="form-label"></label>
+                                <input type="number" name='quantity'
 
-                                className='form-label'
-                               
-                        />
-                        </div>
-                        <button type="submit" class="btn btn-primary"
-                          >Restock</button>
+                                    className='form-label'
+
+                                />
+                            </div>
+                            <button type="submit" class="btn btn-primary"
+                            >Restock</button>
                         </form>
 
 
@@ -113,7 +114,7 @@ const ServiceDetails = () => {
             </div>
 
 
-            <button  style={{background:'yellow',color:'black'}}  type="button" className="btn  fw-bolder btn-sm mt-5">Manage Inventories</button>
+            <Link to='/manageInventories'><button style={{ background: '#DAA520', color: 'white' }} type="button" className="btn p-2  fw-bolder btn-md mt-5">Manage Inventories</button></Link>
 
         </div>
     );

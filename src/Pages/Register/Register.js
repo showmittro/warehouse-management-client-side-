@@ -28,7 +28,7 @@ const Register = () => {
     }
 
     if(user){
-        navigate('/shop');
+        navigate('/');
     }
 
     const handleCreateUser = event =>{

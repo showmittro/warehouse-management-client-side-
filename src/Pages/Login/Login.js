@@ -18,9 +18,17 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle] = useSignInWithGoogle(auth);
 
-    const navigate = useNavigate();
     const location = useLocation();
-    let from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate();
+
+    const from = location?.state?.from?.pathname || '/';
+    
+    const handleGoogleSignIn = () =>{
+        signInWithGoogle()
+        .then( () =>{
+            navigate(from, {replace: true})
+        })
+    }
 
     const handleEmailBlur = event => {
         setEmail(event.target.value);
@@ -41,7 +49,7 @@ const Login = () => {
     }
 
    
-    
+  
 
 
 
@@ -95,15 +103,7 @@ const Login = () => {
 
 
                 <Button
-                 onClick={() =>
-                    signInWithGoogle()
-                        .then(result => {
-                            const user = result.user;
-                            if (user) {
-                                navigate(from, { replace: true });
-                            }
-                            error('');
-                        })} 
+                 onClick={handleGoogleSignIn}
                  style={{ background: 'black', border: 'none' }}>
                       <img style={{ height: '30px' }} src={Google} alt="" /> GoogleSingIn</Button>
 
