@@ -16,7 +16,7 @@ import Brands11 from '../../images/brand11.jpg'
 const Brands = () => {
     return (
         <div className='mt-5'>
-            <h1> Our Brands</h1>
+            <h2 className='fw-bold' style={{color:'#DAA520'}}> <i>Our Brands</i> </h2>
             <div  >
             <div className="container">
             <div class="row row-cols-1 row-cols-md-4 pt-5 g-4">

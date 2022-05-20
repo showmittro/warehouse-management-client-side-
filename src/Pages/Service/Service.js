@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
+import UpdateIcons from '../../images/update.png'
 
 const Service = ({ invo }) => {
   const { _id, img, name, description, quantity, price, Supplier } = invo;
@@ -19,7 +20,7 @@ const Service = ({ invo }) => {
             <h6 class="card-title">Price:${price}</h6>
             <h6 class="card-title">Quty:{quantity}</h6>
             <p class="card-text">{description}</p>
-            <button onClick={() => navigateToServiceDetails(_id)} style={{ background: '#DAA520', color: 'white' }} type="button" class="btn  fw-bolder btn-sm">Update</button>
+            <button onClick={() => navigateToServiceDetails(_id)} style={{ background: '#DAA520', color: 'white' }} type="button" class="btn  fw-bolder btn-sm"> <div className='d-flex justify-content-center align-items-center'><img src={UpdateIcons} style={{height:'20px' , width:'20px'}} alt="" /> <span className='ps-2'>Update</span></div></button>
           </div>
         </div>
 

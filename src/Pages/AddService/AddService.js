@@ -26,16 +26,15 @@ const AddService = () => {
     };
     return (
         <div className='w-50 mx-auto'>
-            <h2>Please add a service</h2>
-            <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
-                <input className='mb-2' placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />
-                <input className='mb-2' placeholder={user.displayName} {...register("name", { required: true, maxLength: 20 })} />
-                <input className='mb-2' placeholder={user.email} {...register("email", { required: true, maxLength: 20 })} />
-                <textarea className='mb-2' placeholder='Description' {...register("description")} />
-                <input className='mb-2' placeholder='Price' type="number" {...register("price")} />
-                <input className='mb-2' placeholder='Quantity' type="number" {...register("quantity")} />
-                <input className='mb-2' placeholder='Photo URL' type="text" {...register("img")} />
-                <input type="submit" value="Add Service" />
+            <h2 className='fw-bold pt-3'>Please <span style={{color:'#DAA520'}}>add a Item!!!</span></h2>
+            <form className='d-flex flex-column pt-3' onSubmit={handleSubmit(onSubmit)}>
+                <input style={{border:'1px solid #DAA520'}} className='mb-2 rounded' placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />
+                <input style={{border:'1px solid #DAA520'}} className='mb-2 rounded' placeholder={user.email} {...register("email", { required: true, maxLength: 20 })} />
+                <textarea style={{border:'1px solid #DAA520'}} className='mb-2 rounded' placeholder='Description' {...register("description")} />
+                <input style={{border:'1px solid #DAA520'}} className='mb-2 rounded' placeholder='Price' type="number" {...register("price")} />
+                <input style={{border:'1px solid #DAA520'}}  className='mb-2 rounded' placeholder='Quantity' type="number" {...register("quantity")} />
+                <input style={{border:'1px solid #DAA520'}} className='mb-2 rounded'  placeholder='Photo URL' type="text" {...register("img")} />
+                <input className='fw-bold text-white border-0' style={{background:'#DAA520'}} type="submit" value="Add Item" />
             </form>
         </div>
     );

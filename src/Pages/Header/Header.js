@@ -10,10 +10,11 @@ const Header = () => {
     const handleSignOut = () =>{
         signOut(auth);
     }
+    console.log(user)
 
     return (
         <div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg bg-dark">
                 <div class="container">
                     <a class="navbar-brand fw-bold" href="#" style={{ color: '#DAA520' }}>Biycle Inventory</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,14 +44,14 @@ const Header = () => {
                             </li>
 
                                         <div className='my-auto'>
-                                        {user.displayName}
-                                        <img src={user.photoUrl} alt="" />
+                                        <span style={{color:'#FFFF'}}>{user.displayName}</span>
+                                       
                                         </div>
 
-                                        <button style={{background:'#DAA520'}} className="btn mx-2" onClick={handleSignOut}>LogOut</button>
+                                        <button style={{background:'#DAA520'}} className="btn mx-2 fw-bold text-white" onClick={handleSignOut}>LogOut</button>
                                     </div> : <div className="d-flex">
                                     <li class="nav-item">
-                                <Link to="/login" className='text-decoration-none fw-bold' ><a style={{ color: '#DAA520' }} className="nav-link">Login</a></Link>
+                                <Link to="/login" className='text-decoration-none fw-bold' ><a style={{ color: '#DAA520' }} className="nav-link ">Login</a></Link>
                             </li>
                                     </div>
 
