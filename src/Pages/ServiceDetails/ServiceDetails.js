@@ -10,7 +10,7 @@ const ServiceDetails = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${serviceId}`;
+        const url = `https://blooming-island-41447.herokuapp.com/inventory/${serviceId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setService(data));
@@ -32,7 +32,7 @@ const ServiceDetails = () => {
 
 
 
-        const url = `http://localhost:5000/inventory/${serviceId}`;
+        const url = `https://blooming-island-41447.herokuapp.com/inventory/${serviceId}`;
         fetch(url, {
             method: "PUT",
             headers: { "content-type": "application/json" },
@@ -61,7 +61,7 @@ const ServiceDetails = () => {
 
 
 
-        const url = `http://localhost:5000/inventory/${serviceId}`;
+        const url = `https://blooming-island-41447.herokuapp.com/inventory/${serviceId}`;
         fetch(url, {
             method: "PUT",
             headers: { "content-type": "application/json" },

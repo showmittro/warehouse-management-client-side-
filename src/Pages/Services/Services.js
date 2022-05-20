@@ -6,7 +6,7 @@ const Services = () => {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/inventory')
+    fetch('https://blooming-island-41447.herokuapp.com/inventory')
       .then(res => res.json())
       .then(data => setInventory(data));
 

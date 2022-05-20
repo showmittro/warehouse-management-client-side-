@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import DeletBg from './../../images/delete.png'
 
 const ManageInventories = () => {
-    const [inventory, setInventory] = useState([])
+    const [stock, setStock] = useState([])
  
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/inventory')
+        fetch('https://blooming-island-41447.herokuapp.com/stock')
             .then(res => res.json())
-            .then(data => setInventory(data));
+            .then(data => setStock(data));
 
     }, []);
 
@@ -19,26 +20,26 @@ const ManageInventories = () => {
     const handleDelete = id =>{
         const proceed = window.confirm('Are you sure?');
         if(proceed){
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://blooming-island-41447.herokuapp.com/stock/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                const remaining = inventory.filter(pd => pd._id !== id);
-                setInventory(remaining);
+                const remaining = stock.filter(pd => pd._id !== id);
+                setStock(remaining);
             })
         }
     }
     return (
         <div>
-            <h3 className='mt-4 fw-bold' >Manage Inventories</h3>
+            <h3 style={{marginTop:'60px'}} className='fw-bold' >Manage Inventories</h3>
             <div className="container">
                 <div className="row row-cols-1 row-cols-md-2 g-4 ">
 
                     {
-                        inventory.map(pd => <div
+                        stock.map(pd => <div
                             key={pd._id}
                             pd={pd}
 
@@ -65,6 +66,7 @@ const ManageInventories = () => {
                         </div>)
                     }
                 </div>
+                <Link to='/addItem'><button style={{ background: '#DAA520', color: 'white' }} type="button" className="btn p-2  fw-bolder btn-md mt-5">Add Item</button></Link>
             </div>
         </div>
     );
